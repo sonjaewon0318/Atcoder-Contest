@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+ 
+int main()
+{
+	cin.tie(NULL); cout.tie(NULL);
+	ios_base::sync_with_stdio(false);
+ 
+    unsigned long long Combination[201][201] = {};
+    Combination[1][0] = 1;
+    Combination[1][1] = 1;
+    for (int i = 2; i <= 200; i++){
+        Combination[i][0] = 1;
+        for (int j = 1; j <= 200; j++){
+            Combination[i][j] = Combination[i - 1][j - 1] + Combination[i - 1][j];
+         }
+    }
+    long long a; cin >> a;
+    cout << Combination[a - 1][11];
+}
