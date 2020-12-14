@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+using ll = long long;
+ 
+int main()
+{
+	cin.tie(NULL); cout.tie(NULL);
+	ios_base::sync_with_stdio(false);
+ 
+    ll n, m, t; cin >> n >> m >>t;
+    ll ans = n;
+    ll e = 0;
+    for(ll i = 0; i < m; i++)
+    {
+        ll a,b; cin >> a >> b;
+        ans -= (a - e);
+        if(ans <= 0)
+        {
+            cout << "No";
+            return 0;
+        }
+        ans += (b - a);
+        if(ans > n) ans = n;
+        e = b;
+    }
+    ans -= (t - e);
+    if(ans > 0)
+        cout << "Yes";
+    else
+        cout << "No";
+}
